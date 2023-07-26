@@ -417,11 +417,13 @@ function readBVFile(gl, text) {
                 currentGroup.objs.push(new RenderablePatch(gl, p));
                 break;
             }
-            case 3: {
+            case 3:
+            case 11: {
                 // triangular bezier patch
                 var deg = Number(input[cur]);
                 ++cur;
-                var cp = read_vector(((deg + 2) * (deg + 1)) / 2, false);
+                var isTriRational = kind == 11; 
+                var cp = read_vector(((deg + 2) * (deg + 1)) / 2, isTriRational);
                 var p = Patch.MakeTriangle(deg, cp);
                 currentGroup.objs.push(new RenderablePatch(gl, p));
                 break;
