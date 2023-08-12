@@ -422,8 +422,8 @@ function readBVFile(gl, text) {
                 // triangular bezier patch
                 var deg = Number(input[cur]);
                 ++cur;
-                var isTriRational = kind == 11; 
-                var cp = read_vector(((deg + 2) * (deg + 1)) / 2, isTriRational);
+                var isRational = kind == 11; 
+                var cp = read_vector(((deg + 2) * (deg + 1)) / 2, isRational);
                 var p = Patch.MakeTriangle(deg, cp);
                 currentGroup.objs.push(new RenderablePatch(gl, p));
                 break;
